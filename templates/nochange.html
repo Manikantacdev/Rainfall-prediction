@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Rain Predicted</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nochange.css') }}">
+</head>
+
+<body>
+    <!-- Floating Clouds -->
+    <div class="cloud-container" id="cloud-container"></div>
+
+    <!-- Sun Rays Effect -->
+    <div class="sun-rays"></div>
+
+    <!-- Main Content -->
+    <div class="result-container" onclick="goBack()">
+        <img src="{{ url_for('static', filename='images/norain.png') }}" alt="No Rain Predicted" class="result-image">
+        <a href="/" class="back-btn">
+            <span>← Go Back</span>
+        </a>
+    </div>
+
+    <script>
+        // Create floating clouds
+        function createClouds() {
+            const container = document.getElementById('cloud-container');
+            const numberOfClouds = 15;
+
+            for (let i = 0; i < numberOfClouds; i++) {
+                const cloud = document.createElement('div');
+                cloud.className = 'cloud';
+
+                const size = Math.random() * 100 + 50;
+                cloud.style.width = size + 'px';
+                cloud.style.height = (size * 0.6) + 'px';
+                cloud.style.top = Math.random() * 100 + '%';
+                cloud.style.left = '-200px';
+                cloud.style.animationDuration = (Math.random() * 30 + 20) + 's';
+                cloud.style.animationDelay = Math.random() * 20 + 's';
+                cloud.style.opacity = Math.random() * 0.2 + 0.05;
+
+                if (container) {
+                    container.appendChild(cloud);
+                }
+            }
+        }
+
+        createClouds();
+
+        function goBack() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+
+</html>

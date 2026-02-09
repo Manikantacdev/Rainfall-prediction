@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rain Predicted</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/change.css') }}">
+</head>
+
+<body>
+    <!-- Rain Animation Overlay -->
+    <div class="rain-container" id="rain-container"></div>
+
+    <!-- Lightning Effect -->
+    <div class="lightning"></div>
+
+    <!-- Main Content -->
+    <div class="result-container" onclick="goBack()">
+        <img src="{{ url_for('static', filename='images/rain.png') }}" alt="Rain Predicted" class="result-image">
+        <a href="/" class="back-btn">
+            <span>← Go Back</span>
+        </a>
+    </div>
+
+    <script>
+        // Create heavy rain drops
+        function createRainDrops() {
+            const container = document.getElementById('rain-container');
+            const numberOfDrops = 300;
+
+            for (let i = 0; i < numberOfDrops; i++) {
+                const drop = document.createElement('div');
+                drop.className = 'rain-drop';
+                drop.style.left = Math.random() * 100 + '%';
+                drop.style.animationDuration = (Math.random() * 0.4 + 0.2) + 's';
+                drop.style.animationDelay = Math.random() * 2 + 's';
+                drop.style.opacity = Math.random() * 0.6 + 0.3;
+                if (container) {
+                    container.appendChild(drop);
+                }
+            }
+        }
+
+        createRainDrops();
+
+        function goBack() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+
+</html>

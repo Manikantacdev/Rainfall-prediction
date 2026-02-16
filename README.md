@@ -145,12 +145,6 @@ Rainfall_Prediction/
 
 ---
 
-## Screenshots
-
-See the `screenshots/` folder for application screenshots.
-
----
-
 ## Author
 
 **Project developed for Machine Learning course submission**
